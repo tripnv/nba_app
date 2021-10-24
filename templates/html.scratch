@@ -1,0 +1,51 @@
+{% for player in players.items()|sort %}
+                <div class="row">
+                    <div class="col-sm">
+                        <div align='center'>{{player[0]}}</div>
+                            <table class="table-fluid table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th></th>
+                                        <th>East</th>
+                                        <th>~</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in range(8) %}
+                                    <tr>
+                                        <td>{{loop.index}}</td>
+                                        <td></td>
+                                        <td>{{player[1]['east'][i]}}</td>
+                                        <td>+{{player[1]['points']["east_points"][i]}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        
+                            <div class="col-sm">
+                                <table class="table-fluid table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th></th>
+                                            <th>West</th>
+                                            <th>~</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(8) %}
+                                        <tr>
+                                            <td>{{loop.index}}</td>
+                                            <td></td>
+                                            <td>{{player[1]['east'][i]}}</td>
+                                            <td>+{{player[1]['points']["west_points"][i]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+                </div>    
+            {% endfor %}    

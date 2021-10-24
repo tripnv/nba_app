@@ -1,0 +1,44 @@
+{
+    "Albert":{
+        "east":["Nets","Bucks","Hawks","76ers","Heat","Bulls","Knicks","Celtics"],
+        "west":["Suns" ,"Lakers","Jazz","Mavericks","Warriors","Nuggets","Clippers","Trail Blazers"],
+        "points":null,
+        "points_total":null
+    },
+    "Nandor":{
+        "east":["Nets","Bucks","Heat","Bulls","Knicks","76ers","Hawks","Celtics",],
+        "west":["Lakers","Jazz","Suns","Mavericks","Nuggets","Clippers","Warriors","Trail Blazers",],
+        "points":null,
+        "points_total":null
+    },
+    "Gellert":{
+        "east":["Bucks","Nets","Hawks","Heat","Celtics","Bulls","76ers","Hornets",],
+        "west":["Jazz","Suns","Lakers","Nuggets","Mavericks","Warriors","Trail Blazers","Grizzlies"],
+        "points":null,
+        "points_total":null
+    },
+    "Levente":{
+        "east":["Bucks","Nets","Hawks","Heat","76ers","Celtics","Knicks","Bulls"],
+        "west":["Lakers","Jazz","Suns","Mavericks",	"Nuggets","Warriors","Clippers","Trail Blazers"],
+        "points":null,
+        "points_total":null
+    },
+    "Pali":{
+        "east":["Nets", "76ers", "Hawks", "Bucks", "Bulls", "Pacers", "Celtics", "Cavaliers"],
+        "west":["Warriors", "Nuggets", "Clippers", "Mavericks", "Lakers", "Suns", "Trail Blazers","Grizzlies"],
+        "points":null,
+        "points_total":null
+    },
+    "Ricsi":{
+        "east":["Bucks", "Nets","76ers", "Hawks", "Bulls", "Raptors", "Heat", "Pacers"],
+        "west":["Suns", "Lakers", "Clippers", "Jazz", "Nuggets", "Mavericks", "Trail Blazers", "Spurs"],
+        "points":null,
+        "points_total":null
+    }, 
+    "Tamas":{
+        "east":["Bucks", "Nets", "76ers", "Celtics", "Hawks", "Bulls", "Wizards", "Knicks"],
+        "west":["Jazz","Lakers", "Suns", "Mavericks", "Warriors", "Clippers", "Nuggets", "Spurs"],
+        "points":null,
+        "points_total":null
+    }
+}

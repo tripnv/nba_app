@@ -3,52 +3,158 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Basic HTML File</title>
+        <title>NBA Competition</title>
 
         <title>Basic Bootstrap Template</title>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     </head>
-    <body>       <!-- Bootstrap JS Bundle with Popper -->
+    <body class="bg-dark">
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <div class="container-lg">
-        <div class="container-lg">
-            <div class="p-5 my-4 bg-light rounded-3">
-                <table class="table table-dark" >
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for i in players.keys() %}
-                        <tr> 
-                            <th scope="row">{{ players.keys.index() }}</td>
-                            <td> {{ players[i]["name"] }} </td>
-                            <td></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            
-        </div>
-        
-        <div class="container-fluid">
-            
-        </div>
-        <footer>
+    <div class="container-lg bg-dark">
+        <div>
             <div class="row">
-                <div class="col-md-6">
-                    <p>Copyright &copy; 2021 N</p>
+                <div class="col"></div>
+                <div class="col">
+                    <h1 class="display-3" style="color:aliceblue" align="center">Predict the playoffs</h1>
+                    <h3 class="display-6" style="color:aliceblue" align="center">2021-2022</h1>
+                </div>
+                <div class="col">
+                    <img class="img-fluid rounded float-left" src="https://www.seekpng.com/png/full/204-2041877_magic-johnson-magic-johnson-signed-dribbling-up-court.png" alt="">
+                </div>
+
+                
+                
+            </div>
+
+        </div>
+        <div class="col lead text-indent: 10% text-white" align="left">Current standings</div>
+            <table class="table table-dark" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in players.items()|sort(attribute='1.points_total', reverse = True) %}
+                    <tr> 
+                        <th scope="row">{{ loop.index }}</td>
+                        <td></td>
+                        <td> {{ player[0] }} </td>
+                        <td> {{ player[1]["points_total"] }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+    </div>
+    
+    <div class="container-lg bg-dark">
+        
+        <div class="row">
+            {% for player in players.items()|sort %}
+            <div class="col-xxl col-sm-6">
+                <div class="row">
+                    <img src="" alt="">
+                    <div class="col lead text-indent: 10% text-white" align="left">{{player[0]}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <table class="table table-dark bg-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">East</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in range(8) %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    {% set team = player[1]['east'][i] %}
+                                    <td>
+                                        <img class="img" style="width: 25px;" src="{{ logos[team] }}" alt="">
+                                    </td>
+                                    <td>{{ team }}</td>
+                                    {% set p = player[1]['points']["east_points"][i]%}
+                                    {% if p == 13 %}
+                                    <td class="text-warning">+{{player[1]['points']["east_points"][i]}}</td>
+                                    {% elif p==11 %}
+                                    <td style="color:rgb(234, 234, 106);">+{{player[1]['points']["east_points"][i]}}</td>
+                                    {% else %}
+                                    <td>+{{player[1]['points']["east_points"][i]}}</td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-6">
+                        <table class="table table-dark bg-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">West</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in range(8) %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    {% set team = player[1]['west'][i] %}
+                                    <td>
+                                        <img class="img" style="width: 25px;" src="{{ logos[team] }}" alt="">
+                                    </td>
+                                    <td>{{ team }}</td>
+                                    {% set p = player[1]['points']["west_points"][i]%}
+                                    {% if p == 13 %}
+                                    <td class="text-warning">+{{player[1]['points']["west_points"][i]}}</td>
+                                    {% elif p==11 %}
+                                    <td style="color:rgb(234, 234, 106);">+{{player[1]['points']["west_points"][i]}}</td>
+                                    {% else %}
+                                    <td>+{{player[1]['points']["west_points"][i]}}</td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Total:</th>
+                                    <th scope="col">{{player[1].points_total}}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </footer>
+            {% endfor %}
+            
+        </div>
+    </div>        
     </div>
+    
+        
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col">
+                <p color="">Copyright &copy; 2021, Magic > Jordan</p>
+            </div>
+        </div>
+    </footer>
+        
+    
     </body>
 
 </html>
