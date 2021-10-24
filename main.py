@@ -77,11 +77,14 @@ def assign_points(standings:tuple, players:dict) -> None:
     for player in players.keys():
         players[player]["points_total"] = sum(players[player]["points"]["east_points"]) + sum(players[player]["points"]["west_points"])
 
+@app.before_request()
+def before_request_callback():
+    standings = get_standings()
+    assign_points(standings, players)
 
 @app.route("/")
 def home():
-    standings = get_standings()
-    assign_points(standings, players)
+    
     return render_template("home.html", players = players, logos = logos)
 
 if __name__=="__main__":
