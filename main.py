@@ -77,7 +77,7 @@ def assign_points(standings:tuple, players:dict) -> None:
     for player in players.keys():
         players[player]["points_total"] = sum(players[player]["points"]["east_points"]) + sum(players[player]["points"]["west_points"])
 
-@app.before_request()
+@app.before_request
 def before_request_callback():
     standings = get_standings()
     assign_points(standings, players)
